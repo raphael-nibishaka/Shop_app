@@ -15,13 +15,29 @@ public class ProductController {
     private ProductService productService;
 
     @PostMapping
-    public ResponseEntity<Product> registerProduct(@RequestBody Product product) {
-        return ResponseEntity.ok(productService.registerProduct(product));
+    public ResponseEntity<Product> createProduct(@RequestBody Product product) {
+        return ResponseEntity.ok(productService.createProduct(product));
     }
 
-    @GetMapping("/{code}")
-    public ResponseEntity<Product> getProduct(@PathVariable String code) {
-        return ResponseEntity.ok(productService.getProduct(code));
+    @PutMapping("/{id}")
+    public ResponseEntity<Product> updateProduct(@PathVariable Long id, @RequestBody Product product) {
+        return ResponseEntity.ok(productService.updateProduct(id, product));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteProduct(@PathVariable Long id) {
+        productService.deleteProduct(id);
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Product> getProduct(@PathVariable Long id) {
+        return ResponseEntity.ok(productService.getProduct(id));
+    }
+
+    @GetMapping("/code/{productCode}")
+    public ResponseEntity<Product> getProductByCode(@PathVariable String productCode) {
+        return ResponseEntity.ok(productService.getProductByCode(productCode));
     }
 
     @GetMapping
@@ -29,9 +45,9 @@ public class ProductController {
         return ResponseEntity.ok(productService.getAllProducts());
     }
 
-    @GetMapping("/type/{type}")
-    public ResponseEntity<List<Product>> getProductsByType(@PathVariable String type) {
-        return ResponseEntity.ok(productService.getProductsByType(type));
+    @GetMapping("/category/{category}")
+    public ResponseEntity<List<Product>> getProductsByCategory(@PathVariable String category) {
+        return ResponseEntity.ok(productService.getProductsByCategory(category));
     }
 
     @GetMapping("/search")

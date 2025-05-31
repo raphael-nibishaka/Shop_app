@@ -1,34 +1,41 @@
 package URaphael.raphy.model;
 
 import jakarta.persistence.*;
-import java.time.LocalDate;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "product")
 public class Product {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @Column(unique = true)
-    private String code;
+    private String productCode;
 
     private String name;
-
-    @Column(name = "product_type")
-    private String productType;
-
-    private double price;
-
-    @Column(name = "in_date")
-    private LocalDate inDate;
-
-    private String image;
+    private String description;
+    private BigDecimal price;
+    private Integer stockQuantity;
+    private String category;
+    private String imageUrl;
+    private boolean active = true;
 
     // Getters and Setters
-    public String getCode() {
-        return code;
+    public Long getId() {
+        return id;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getProductCode() {
+        return productCode;
+    }
+
+    public void setProductCode(String productCode) {
+        this.productCode = productCode;
     }
 
     public String getName() {
@@ -39,35 +46,51 @@ public class Product {
         this.name = name;
     }
 
-    public String getProductType() {
-        return productType;
+    public String getDescription() {
+        return description;
     }
 
-    public void setProductType(String productType) {
-        this.productType = productType;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
-    public LocalDate getInDate() {
-        return inDate;
+    public Integer getStockQuantity() {
+        return stockQuantity;
     }
 
-    public void setInDate(LocalDate inDate) {
-        this.inDate = inDate;
+    public void setStockQuantity(Integer stockQuantity) {
+        this.stockQuantity = stockQuantity;
     }
 
-    public String getImage() {
-        return image;
+    public String getCategory() {
+        return category;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }
