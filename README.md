@@ -78,7 +78,7 @@ git clone [repository-url]
 cd binary-supermarket
 ```
 
-2. **Configure MySQL database:**
+2. **Configure MySQL databas e:**
    - Install MySQL Server if not already installed
    - Create a new database:
    ```sql
