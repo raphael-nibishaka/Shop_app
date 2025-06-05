@@ -82,7 +82,7 @@ cd binary-supermarket
    - Install MySQL Server if not already installed
    - Create a new database:
    ```sql
-   CREATE DATABASE supermarket_db;
+   CREATE DATABASE supermarket_db
    ```
    - Update the database configuration in `src/main/resources/application.properties`:
    ```properties
