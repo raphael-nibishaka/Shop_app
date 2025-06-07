@@ -84,7 +84,7 @@ cd binary-supermarket
    ```sql
    CREATE DATABASE supermarket_db;
    ```
-   - Update the database configuration in `src/main/resources/application.properties`:
+   - Update the database configuration in `src/main/resources/application.properties:
    ```properties
    spring.datasource.url=jdbc:mysql://localhost:3306/supermarket_db
    spring.datasource.username=your_username
