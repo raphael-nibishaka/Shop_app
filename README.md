@@ -4,7 +4,7 @@ A comprehensive Spring Boot-based supermarket management system that provides a 
 
 ## 🌟 Features
 
-- **Inventory Management**
+- **Inventory Management()**
   - Real-time stock tracking
   - Low stock alerts
   - Product categorization
